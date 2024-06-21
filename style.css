@@ -1,0 +1,279 @@
+:root{
+    --soft-orange:hsl(35, 77%, 62%);
+    --soft-red:hsl(5, 85%, 63%);
+    --off-white:hsl(36, 100%, 99%);
+    --grayish-blue:hsl(233, 8%, 79%);
+    --darkgrayish-blue:hsl(236, 13%, 42%);
+    --verydark-blue:hsl(240, 100%, 5%);
+
+}
+body{
+    font-size: 15px;
+    font-family: "Inter", sans-serif;
+    background-color: var(--off-white);
+    color: var(--grayish-blue);
+}
+.container{
+    width: 70%; /* Adam televizyondan falan girerse her şey ortada yanlar tamamen boş olmasın   */
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Header  */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 112px;
+}
+nav{
+    display: flex;
+    gap: 48px;
+}
+nav a{
+    color: var(--darkgrayish-blue);
+    font-weight: 500;
+}
+nav a:hover{
+    color: var(--soft-red);
+}
+/* news  */
+#news{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 32px;
+}
+.news-left{
+    grid-area: 1 / 1 / 2 / 9;
+}
+.news-right{
+    grid-area: 1 / 9 / 2 / 13;
+}
+
+.news-left-grid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 24px;
+    margin-top: 16px;
+}
+.news-left-title{
+    grid-area: 1 / 1 / 2 / 4;
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--verydark-blue);
+}
+.news-left-text{
+    grid-area: 1 / 4 / 2 / 7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.news-left-text p{
+    
+    color: var(--darkgrayish-blue);
+    line-height: 1.5;
+}
+.button{
+    align-self: baseline;
+    color: black;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: var(--soft-red);
+    outline: none;
+    border: none;
+    padding: 16px 32px;
+    cursor: pointer;
+}
+
+/* news right  */
+.news-right{
+    background-color: var(--verydark-blue);
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+   
+}
+.news-right-content{
+    padding-bottom: 16px;
+    overflow: hidden;
+}
+.news-right h3{
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--soft-orange);
+}
+.news-right h4{
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--off-white);
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+.news-right p{
+    line-height: 1.5;
+    color: var(--grayish-blue);
+}
+.news-border-bottom{
+    border-bottom: 1px solid var(--darkgrayish-blue);
+}
+
+
+/* option  */
+#options{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 32px;
+    margin-top: 64px;
+   
+}
+.option-container{
+    display: flex;
+    gap: 24px;
+    
+}
+.option-container img { 
+    width: 24%;
+}
+.option-container h6{
+    font-size: 32px;
+    color: var(--soft-red);
+    font-weight: 700;
+}
+.option-container a{
+    color: black;
+    font-weight: 900;
+    font-size: 19px;
+}
+.option-container p {
+    color: var(--verydark-blue);
+    opacity: 0.6;
+}
+.option-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+/* mobile-menu */
+.mobile-menu{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    background-color: var(--off-white);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-left: 24px;
+    padding-top: 250px;
+}
+.mobile-menu a{
+    color: var(--verydark-blue);
+    font-weight: 500;
+    font-size: 22px;
+}
+.mobile-menu a:hover{
+    color: var(--soft-orange);
+}
+.close-btn{
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+.close-btn:hover{
+    opacity: 0.7;
+}
+.icon-menu{
+    display: none;
+    max-width: fit-content;
+    cursor: pointer;
+}
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 1;
+    visibility: hidden;
+}
+#overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Media Queries */
+@media screen and (max-width: 840px) {
+    .container{
+        width: 92%;
+        overflow: hidden;
+        padding-bottom:36px ;
+    }
+    nav{
+        display: none;
+    }
+    
+    #news{
+        display: flex;
+        flex-direction: column;
+        gap: 44px;
+    }
+    .news-left-grid{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .news-left-title{
+        
+        font-size: 40px;
+        font-weight: 900;
+        max-width: 75%;
+        
+    }
+
+    #options{
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+    
+    .option-container p {
+        line-height: 1.5;
+    }
+    
+    .button{
+        margin-top: 24px;
+    }
+    .icon-menu{
+        display: block;
+    }
+
+}
+@media screen and (max-width: 1440px) {
+    .news-right{
+        padding: 16px 20px;
+        gap: 3px;
+       
+    }
+    .news-right h3{
+        font-size: 36px;
+    }
+    .news-right h4{
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
+
+
